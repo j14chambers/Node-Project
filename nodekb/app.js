@@ -10,6 +10,8 @@ app.set('view engine', 'pug');
 
 //Home Route
 app.get('/', function(req, res){
+
+    // article db to loop on index.pug
     let articles = [
         {
             id: 1,
