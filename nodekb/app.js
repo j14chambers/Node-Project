@@ -1,6 +1,11 @@
 //Part 4
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/nodekb');
+let db = mongoose.connection;
+
 const app = express();
 
 //Load View Engine
