@@ -1,4 +1,4 @@
-//Part 4
+//Part 7
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -87,6 +87,38 @@ app.post('/articles/add', function(req, res){
     //console.log(req.body.title);
     //return;
     article.save(function(err){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.redirect('/');
+        }
+    });
+});
+
+//Load Edit Form
+app.get('/article/edit/:id', function(req, res){
+    Article.findById(req.params.id, function(err, article){
+        res.render('edit_article', {
+            title:"Edit Article",
+            article:article
+        });
+        //console.log(article);
+        //return;
+    });
+});
+
+//Update Submit POST Route
+app.post('/articles/edit/:id', function(req, res){
+    
+    let article = {};
+    article.title = req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
+
+    let query = {_id:req.params.id}
+    
+    Article.update(function(err){
         if(err){
             console.log(err);
         }
