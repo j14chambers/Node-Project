@@ -60,6 +60,16 @@ app.get('/article/:id', function(req,res){
     });
 });
 
+//Load Edit Form
+app.get('/article/edit/:id', function(req,res){
+    Article.findById(req.params.id, function(err, article){
+        res.render('edit_article',{
+            title: 'Edit Article',
+            article:article
+        });
+    });
+});
+
 //Add Route
 app.get('/articles/add', function(req,res){
     res.render('add_article',{
@@ -85,6 +95,38 @@ app.post('/articles/add', function(req,res){
            res.redirect('/');
        }
    });
+});
+
+//Update Submit POST Route
+app.post('/articles/edit/:id', function(req,res){
+
+    let article = {}
+    article.title = req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
+
+    let query = {_id:req.params.id}
+
+   Article.update(query, article, function(err){
+       if(err){
+           console.log(err);
+           return;
+       }
+       else{
+           res.redirect('/');
+       }
+   });
+});
+
+app.delete('/article/:id', function(req, res){
+    let query = {_id:req.params.id}
+
+    Article.remove(query, function(err){
+        if (err) {
+            console.log(err);
+        }
+        res.send('Success');
+    });
 });
 
 //Start Sever
