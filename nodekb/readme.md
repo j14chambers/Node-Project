@@ -1,4 +1,5 @@
-#Node Project
+# Node Project
+
 A tutorial from Brad Traversy. This is meant to be a introduction to Node, Express, and MongoDB. The tutorial is based on a article database. In this tutorial PUG is also used instead of HTML.
 ## Links
 #### Tutorial
