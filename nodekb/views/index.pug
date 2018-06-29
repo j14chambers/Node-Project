@@ -1,8 +1,9 @@
 extends layout
 
 block content
-    h1 #{title}
-    ul.list-group
+    h1.index-title #{title}
+    ul.list-group.col-md-8
         each article, i in articles
-            li.list-group-item
-                a(href="/article/"+article._id)= article.title
+            li.list-group-item.list-index
+                a.article-index-list(href="/article/"+article._id)= article.title
+                h5.author-index Written by #{article.author}

@@ -1,0 +1,35 @@
+body{
+    font-size: 18px;
+}
+h1{
+    font-size: 35px;
+    color: lightseagreen;
+}
+hr{
+    clear: both;
+    border: black solid 1px;
+}
+/*INDEX CSS - ARTICLE.PUG*/
+
+.list-index{
+    margin: 10px 0;
+    padding: 10px 30px;
+    background: lightseagreen;
+}
+.article-index-list{
+    color: darkslategrey;
+    
+}
+.author-index{
+    font-size: 12px;
+    color: white;
+}
+
+/*ARTICLE.PUG CSS*/
+#article-page-css a{
+    margin: 0 11px;
+}
+#article-page-css p{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
