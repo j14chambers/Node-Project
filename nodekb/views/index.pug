@@ -5,5 +5,5 @@ block content
     ul.list-group.col-md-8
         each article, i in articles
             li.list-group-item.list-index
-                a.article-index-list(href="/article/"+article._id)= article.title
+                a.article-index-list(href="/articles/"+article._id)= article.title
                 h5.author-index Written by #{article.author}
