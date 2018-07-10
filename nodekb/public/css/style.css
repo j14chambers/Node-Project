@@ -32,4 +32,5 @@ hr{
 #article-page-css p{
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    white-space: pre-wrap;
 }
