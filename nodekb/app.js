@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
+const config = require('./config/database');
+const passport = require('passport');
 
-mongoose.connect('mongodb://localhost/nodekb');
+mongoose.connect(config.database);
 let db = mongoose.connection;
 
 //Check connection
@@ -68,6 +70,19 @@ app.use(expressValidator({
         };
     }
 }));
+
+//Passport Config
+require('./config/passport')(passport);
+
+app.get('*', function(req, res, next){
+    res.locals.user = req.user || null;
+    next();
+  });
+
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //Home route
 app.get('/', function(req, res){
